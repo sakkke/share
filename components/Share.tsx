@@ -15,6 +15,12 @@ export default function Share() {
     setPosts(resultList);
   };
 
+  const readablizeBytes = bytes => {
+    const units = ['bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    const e = Math.floor(Math.log(bytes) / Math.log(1024));
+    return `${(bytes / (1024 ** e)).toFixed(2)} ${units[e]}`;
+  };
+
   useEffect(() => {
     handleUpdate();
 
@@ -66,7 +72,7 @@ export default function Share() {
                         href={client.records.getFileUrl(item, item.file)}
                       >{item.name}</a>
                     </td>
-                    <td className={styles.field__size}>{item.size}</td>
+                    <td className={styles.field__size}>{readablizeBytes(item.size)}</td>
                     <td>
                       <code>{item.type}</code>
                     </td>

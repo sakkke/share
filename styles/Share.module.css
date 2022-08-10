@@ -26,6 +26,7 @@
 
 .field__size {
   text-align: right;
+  white-space: nowrap;
 }
 
 .field__created {
