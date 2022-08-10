@@ -16,5 +16,9 @@
     "react-refresh": "0.10.0",
     "typescript": "latest"
   },
-  "module": "index.js"
+  "module": "index.js",
+  "scripts": {
+    "build": "next build",
+    "start": "next start"
+  }
 }
