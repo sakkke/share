@@ -1,0 +1,33 @@
+.records {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+}
+
+.records tr > * {
+  padding: .5rem;
+}
+
+.records > thead > tr > * {
+  border-bottom: 2px solid var(--text-2);
+}
+
+.records > tbody > tr > * {
+  border-bottom: 1px solid var(--text-2);
+}
+
+.header__name {
+  width: 100%;
+}
+
+.field__name {
+  font-family: var(--font-mono);
+}
+
+.field__size {
+  text-align: right;
+}
+
+.field__created {
+  white-space: nowrap;
+}

@@ -1,5 +1,6 @@
 // @ts-ignore
 import ListResult from 'pocketbase/models/utils/ListResult';
+import styles from '../styles/Share.module.css';
 import { Record } from 'pocketbase';
 import { client } from '../utils/pocketbaseClient';
 import { useEffect, useRef, useState } from 'react';
@@ -47,10 +48,10 @@ export default function Share() {
       {posts
         ? posts.items.length !== 0
           ? (
-            <table>
+            <table className={styles.records}>
               <thead>
                 <tr>
-                  <th>Name</th>
+                  <th className={styles.header__name}>Name</th>
                   <th>Size</th>
                   <th>Type</th>
                   <th>Posted</th>
@@ -59,15 +60,17 @@ export default function Share() {
               <tbody>
                 {posts.items.map(item => (
                   <tr key={item.id}>
-                    <td>
+                    <td className={styles.field__name}>
                       <a
                         download={item.name}
                         href={client.records.getFileUrl(item, item.file)}
                       >{item.name}</a>
                     </td>
-                    <td>{item.size}</td>
-                    <td>{item.type}</td>
-                    <td>{item.created}</td>
+                    <td className={styles.field__size}>{item.size}</td>
+                    <td>
+                      <code>{item.type}</code>
+                    </td>
+                    <td className={styles.field__created}>{item.created}</td>
                   </tr>
                 ))}
               </tbody>
